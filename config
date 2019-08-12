@@ -1,0 +1,52 @@
+[paths]
+inputfile = dynampitrace.txt
+outputdir = ./output
+sqlitedbfile = foo.db
+
+[comment]
+commentInOutputFileEnabled = true
+commentInOutputFile = LS-DYNA on vulcan.
+
+[generalPlotting]
+dpi = 150
+saveFigsAsPDF = false
+useVectorGraphics = true
+
+[applicationSummaryByRankPlots]
+#colors given in hexadecimal form without the #-character
+userTimeColor = 1F78B4
+systemTimeColor = 31A354
+mpiTimeColor = A1D99B
+blockingTimeColor = FF6666
+
+[routineSummaryByRankPlots]
+#Possible data to plot:
+plotColumn = overhead
+#can be: calls, overhead, blocking, minOverhead,minBlocking,maxOverhead,maxBlocking,avgOverhead,avgBlocking
+metric = cov
+#can be: cov, median, mean, range, min, max
+#normalizeYaxis = false # not yet implemented
+numberOfInterest = 10
+#plot only the n (e.g. 10) most interesting plots according to chosen metric
+barWidth = 1.0
+#default value given by matplotlib is 0.8
+
+[MessageSummaryByRankPairPlots]
+useScatterPlot = true
+useImShowPlot = true
+imShowInterpolationFilter = none
+#can be: none, nearest, bilinear, bicubic, ...
+#default is none.
+scatterPlotThresholdEnabled = true
+scatterPlotDivider = 1000000.
+#need to get reasonable small data points, otherwise nothing will be distinguishable in the scatter plot
+dataToPlot = numberOfMessages
+#can be: numberOfMessages or totalMessageBytes
+
+[files]
+writecsv = true
+writehtml = true
+writepdf = true
+
+[misc]
+enableVerboseDBOutput = false

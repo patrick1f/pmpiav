@@ -1,0 +1,77 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{pdflscape}
+\usepackage{colortbl}
+\title{Platform MPI Performance report for file <inputfile> on <dtime>}
+\begin{document}
+\maketitle
+%Tags are later replaced by the actual strings
+%This file may not compile correctly before the strings are replaced
+\section*{Summary}
+\begin{itemize}
+    \item Size of <inputfile> is <inputfilesize> bytes.
+    \item MPI Processes used: <mpi_procs>
+    \item User time: <user_time>\%
+    \item MPI time: <mpi_time0>\% [Overhead: <mpi_time1>\%, Blocking: <mpi_time2>\%]
+\end{itemize}
+<comment>
+\section*{First part: Application Summary by Rank}
+The following data is depicted in percent.
+\setlength{\tabcolsep}{0pt}
+\newcolumntype{C}[1]{@{}>{\centering\arraybackslash}p{#1}@{}}
+\begin{table}[H]
+\centering
+\begin{tabular}{|C{10em}|C{5em}|C{5em}|C{5em}}
+\toprule
+                                             & \textbf{min}  & \textbf{max}  & \textbf{mean} \\ \midrule
+\cellcolor[HTML]{<userTimeColor>}\textbf{user time}   & <usersystem1> & <usersystem2> & <usersystem3> \\
+\cellcolor[HTML]{<systemTimeColor>}\textbf{system time} & <usersystem4> & <usersystem5> & <usersystem6> \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{|C{10em}|C{5em}|C{5em}|C{5em}}
+\toprule
+                                             & \textbf{min}  & \textbf{max}  & \textbf{mean} \\ \midrule
+\cellcolor[HTML]{<userTimeColor>}\textbf{user time}   & <usermpi1> & <usermpi2> & <usermpi3> \\
+\cellcolor[HTML]{<mpiTimeColor>}\textbf{MPI time} & <usermpi4> & <usermpi5> & <usermpi6> \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{|C{10em}|C{5em}|C{5em}|C{5em}}
+\toprule
+                                             & \textbf{min}  & \textbf{max}  & \textbf{mean} \\ \midrule
+\cellcolor[HTML]{<mpiTimeColor>}\textbf{MPI time}   & <mpiblock1> & <mpiblock2> & <mpiblock3> \\
+\cellcolor[HTML]{<blockingTimeColor>}\textbf{Blocking time} & <mpiblock4> & <mpiblock5> & <mpiblock6> \\ \bottomrule
+\end{tabular}
+\end{table}
+<firsttable>
+<secondtable>
+<thirdtable>
+\section*{Second part: Routine Summary by Rank}
+<plotColumn1>
+<routineSummaryByRankPlots>
+<sorting>
+\par
+<plotColumn2>
+\begin{landscape}
+\setlength{\tabcolsep}{8pt}
+\begin{table}[]
+<pdftable>
+\caption{<pdftabledesc>}
+\end{table}
+\end{landscape}
+\section*{Third part: Message Summary by Rank Pair}
+<imshow>
+<scatter>
+\end{document}
